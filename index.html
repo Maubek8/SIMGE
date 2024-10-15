@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMGEs - Sistema Integrado de Gestão</title>
     <link rel="icon" href="image/favi.jpg" type="image/x-icon">
-
     <style>
         body, html {
             margin: 0;
@@ -138,13 +137,6 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .password-strength {
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        .weak { color: red; }
-        .medium { color: orange; }
-        .strong { color: green; }
     </style>
 </head>
 <body>
@@ -159,7 +151,7 @@
         <main class="content">
             <div class="auth-box">
                 <h2>Login</h2>
-                <form id="loginForm">
+                <form id="loginForm" method="POST" action="/login">
                     <div class="form-group">
                         <label for="username">Usuário:</label>
                         <input type="text" id="username" name="username" required>
@@ -187,7 +179,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Registrar</h2>
-            <form id="registerForm">
+            <form id="registerForm" method="POST" action="/register">
                 <div class="form-group">
                     <label for="fullName">Nome Completo:</label>
                     <input type="text" id="fullName" name="fullName" required>
@@ -213,9 +205,23 @@
             </form>
         </div>
     </div>
-       <!-- Scripts JavaScript -->
-   ...
-    <!-- Scripts JavaScript -->
+
+    <!-- Modal Esqueci a Senha -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Esqueci a Senha</h2>
+            <form id="forgotPasswordForm" method="POST" action="/forgot-password">
+                <div class="form-group">
+                    <label for="recoveryEmail">Email de Cadastro:</label>
+                    <input type="email" id="recoveryEmail" name="recoveryEmail" required>
+                </div>
+                <button type="submit">Enviar Link de Recuperação</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Scripts JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const registerModal = document.getElementById("registerModal");
@@ -293,6 +299,7 @@
             // Envio do formulário de recuperação de senha
             document.getElementById("forgotPasswordForm").addEventListener("submit", function(event) {
                 event.preventDefault();
+                const recoveryEmail = document.getElementById("recoveryEmail").value;
                 alert("Link de recuperação enviado para o email informado.");
                 forgotPasswordModal.style.display = "none";
             });
@@ -311,4 +318,3 @@
     </script>
 </body>
 </html>
-
