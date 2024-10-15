@@ -64,6 +64,7 @@ app.post('/register', (req, res) => {
         console.error('Erro ao registrar o usuário', err);
         res.status(500).send('Erro ao registrar');
       } else {
+        console.log('Usuário registrado com sucesso:', email); // Log de sucesso
         res.status(200).send('Usuário registrado com sucesso');
       }
     }
@@ -73,6 +74,8 @@ app.post('/register', (req, res) => {
 // Rota para enviar link de recuperação de senha
 app.post('/forgot-password', (req, res) => {
   const { email } = req.body;
+
+  console.log('Enviando e-mail de recuperação para:', email); // Log de depuração
 
   const msg = {
     to: email,
@@ -85,10 +88,11 @@ app.post('/forgot-password', (req, res) => {
   sgMail
     .send(msg)
     .then(() => {
+      console.log('E-mail de recuperação enviado com sucesso'); // Log de sucesso
       res.status(200).send('E-mail de recuperação enviado');
     })
     .catch((error) => {
-      console.error('Erro ao enviar e-mail', error);
+      console.error('Erro ao enviar e-mail', error); // Log de erro
       res.status(500).send('Erro ao enviar e-mail');
     });
 });
