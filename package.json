@@ -1,4 +1,11 @@
 {
+  "name": "simlab-project",
+  "version": "1.0.0",
+  "description": "Sistema de Gerenciamento de Simulação com reconhecimento facial",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@sendgrid/mail": "^8.1.3",
     "dotenv": "^16.4.5",
@@ -8,7 +15,6 @@
     "@tensorflow/tfjs-node": "^3.11.0", // TensorFlow para rodar a API
     "@tensorflow/tfjs-core": "^3.11.0"  // Núcleo do TensorFlow
   },
-  "scripts": {
-    "start": "node server.js"  // Para iniciar o servidor
-  }
+  "author": "Seu Nome",
+  "license": "ISC"
 }
