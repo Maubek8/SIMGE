@@ -3,6 +3,12 @@
     "@sendgrid/mail": "^8.1.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "face-api.js": "^0.22.2",   // Biblioteca para reconhecimento facial
+    "@tensorflow/tfjs-node": "^3.11.0", // TensorFlow para rodar a API
+    "@tensorflow/tfjs-core": "^3.11.0"  // Núcleo do TensorFlow
+  },
+  "scripts": {
+    "start": "node server.js"  // Para iniciar o servidor
   }
 }
